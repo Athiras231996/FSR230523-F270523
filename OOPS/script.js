@@ -115,47 +115,39 @@ console.log(car.printYear());
 
 //inheritance
 
-class Vechicle{
-    constructor(fuelAmount,capacity){
-        this.fuelAmount=fuelAmount,
-        this.capacity=capacity
+class Vechicle {
+    constructor(fuelAmount, capacity) {
+        this.fuelAmount = fuelAmount;
+        this.capacity = capacity;
+    }
 
+    setCapacity(capacity) {
+        this.capacity = capacity;
     }
-    setCapacity(capacity){
-        this.capacity=capacity
+
+    getCapacity() {
+        return this.capacity;
     }
-    getCapacity(){
-        return this.capacity
+
+    setFuelAmount(fuelAmount) {
+        this.fuelAmount = fuelAmount;
     }
-    setFuelAmount(fuelAmount){
-        this.fuelAmount=fuelAmount
-    }
-    getFuelAmount(){
-        return this.fuelAmount
+
+    getFuelAmount() {
+        return this.fuelAmount;
     }
 }
-class Bus extends Vechicle{
-    constructor(capacity,hasPetrol){
-        super(capacity);
-        this.hasPetrol=hasPetrol
-//super(capacity);
+
+class Bus extends Vechicle {
+    constructor(fuelAmount, capacity, hasPetrol) {
+        super(fuelAmount, capacity); //Here you have to pass all the parent class properties , which caused the problem of our code
+        this.hasPetrol = hasPetrol;
     }
 }
-var vechicle=new Vechicle(100,100)
-var bus=new Bus(150,true);
-console.log(bus.getCapacity())
 
+var bus = new Bus(150, 100, true); // Pass the fuelAmount, capacity, and hasPetrol values
+console.log(bus.getCapacity()); // Output: 100
 
-
-// var imgDiv=document.getElementById('imgDiv');
-// function onImgClick(e){
-// imgDiv.innerHTML=e.target.src
-// }
-
-//function onImgClick(e){
-//left.innerHtml=e.target.src
-//}
-//img.addeventListener("click", onImgClick)
 
 
 
